@@ -12,7 +12,7 @@ clear
 echo "Packer installed sucefully 😃😃😃"
 
 echo "now install neovim config"
-git clone https://github.com/idcmardelplata/neovim_configuration.git $HOME/.config/nvim
+git clone https://github.com/noisyBrain/updated_nvim_config.git $HOME/.config/nvim
 
 
 echo "Neovim is now installed"
