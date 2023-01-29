@@ -20,6 +20,9 @@ vim.g.mapleader = " "
 
 local mappings = {
 
+  -- Reload config
+  {"n", "<leader>r", ":so %<cr>"},
+
   -- Buffers
   {"n", "<leader>ef", ":bd<cr>"},
 
@@ -53,8 +56,8 @@ local mappings = {
   {"n", "<S-TAB>", ":bprevious<CR>"},
 
   -- Move text up and down
-  {"n", "<A-j>", "<Esc>:m .+1<CR>==gi"},
-  {"n", "<A-k>", "<Esc>:m .-2<CR>==gi"},
+  {"n", "<A-j>", "<Esc>:move .+1<CR>==gi"},
+  {"n", "<A-k>", "<Esc>:move .-2<CR>==gi"},
 
   -- Insert --
   -- Press jk fast to exit insert mode 
@@ -74,8 +77,6 @@ local mappings = {
   -- Move text up and down
   {"x", "J", ":move '>+1<CR>gv-gv"},
   {"x", "K", ":move '<-2<CR>gv-gv"},
-  {"x", "<A-j>", ":move '>+1<CR>gv-gv"},
-  {"x", "<A-k>", ":move '<-2<CR>gv-gv"},
 
   -- Custom keymaps
   {"n", "<C-s>", "<cmd>:write<cr>"},
