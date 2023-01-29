@@ -31,6 +31,7 @@ local mappings = {
 
   -- No hightlight
   {"n", "<leader>vs", ":vsplit<cr>"},
+  {"n", "<leader>s", ":split<cr>"},
 
   -- No hightlight
   {"n", "<ESC>", ":nohl<cr>"},
