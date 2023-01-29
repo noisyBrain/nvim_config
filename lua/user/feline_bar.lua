@@ -1,4 +1,3 @@
-require('feline').setup({})
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 
@@ -33,10 +32,12 @@ local separators = {
   left_rounded_thin = '',
   right_rounded = '',
   right_rounded_thin = '',
-  circle = ''
+  circle = '',
+  circle_thin = ' '
 }
 
-local colors2 = {
+---@diagnostic disable-next-line: unused-local
+local unused_colors = {
   bg = '#1e1e2e',
   black = '#11111b',
   yellow = '#f9e2af',
@@ -55,48 +56,52 @@ local colors2 = {
 local colors = {
   bg = '#1e1e2e',
   black = '#11111b',
-  yellow = '#E5C07B', -- yellow
-  cyan = '#56B6C2', -- turquesa
+  orange_yellow = '#E5C07B',
+  turquesa = '#56B6C2',
   oceanblue = '#89b4fa',
-  green = '#33ff99',
+  green2 = '#33ff99',
+  anaranjado = '#ff9966',
   orange = '#ff9900',
   violet = '#b4befe',
   magenta = '#cba6f7',
   white = '#f5e0dc',
   fg = '#f2cdcd',
-  skyblue = '#61AFEF', -- lightblue
-  red = '#E06C75', -- red
+  lightblue = '#61AFEF',
+  moradito = '#ac72f3',
+  red = '#E06C75',
+  naranjita = '#ffb399',
+  lila = '#ac72f3'
 }
 
 local vi_mode_colors = {
-  NORMAL = 'green',
-  OP = 'green',
+  NORMAL = 'anaranjado',
+  OP = 'anaranjado',
   INSERT = 'red',
-  VISUAL = 'skyblue',
-  LINES = 'skyblue',
-  BLOCK = 'skyblue',
+  VISUAL = 'moradito',
+  LINES = 'moradito',
+  BLOCK = 'moradito',
   REPLACE = 'violet',
   ['V-REPLACE'] = 'violet',
   ENTER = 'cyan',
   MORE = 'cyan',
   SELECT = 'orange',
-  COMMAND = 'green',
-  SHELL = 'green',
-  TERM = 'green',
-  NONE = 'yellow'
+  COMMAND = 'anaranjado',
+  SHELL = 'anaranjado',
+  TERM = 'anaranjado',
+  NONE = 'orange_yellow'
 }
 
 local vi_mode_text = {
   NORMAL = ' ' .. separators.slant_left .. separators.slant_right_2,
   OP = ' ',
-  INSERT = ' ' .. separators.slant_left .. separators.slant_right_2,
-  VISUAL = ' ',
-  LINES = ' ',
+  INSERT = separators.left_rounded .. separators.right_rounded,
+  VISUAL = ' ' .. separators.circle_thin,
+  LINES = ' ' .. separators.left_filled .. separators.right_filled,
   BLOCK = ' █',
-  REPLACE = '<> ',
+  REPLACE = ' ',
   ['V-REPLACE'] = ' ',
   ENTER = '<> ',
-  MORE = '<> ',
+  MORE = separators.slant_left,
   SELECT = '  ',
   COMMAND = '  ',
   SHELL = '',
@@ -117,11 +122,11 @@ force_inactive.buftypes = {
   'terminal'
 }
 
--- LEFT
+-- // LEFT //
 
 -- vi-mode
 components.active[1][1] = {
-  provider = '   ',
+  provider = '  ',
   hl = function()
     local val = {}
 
@@ -149,6 +154,7 @@ components.active[1][2] = {
   provider = function()
     return vi_mode_text[vi_mode_utils.get_vim_mode()]
   end,
+
   hl = function()
     local val = {}
 
@@ -170,8 +176,8 @@ components.active[1][3] = {
     local val = {}
 
     val.fg = 'black'
-    val.bg = '#33ccff'
-    val.style = 'italic'
+    val.bg = '#ffff99'
+    val.style = 'bold'
 
     return val
   end,
@@ -179,7 +185,7 @@ components.active[1][3] = {
   left_sep = {
     str = ' ' .. separators.slant_left,
     hl = {
-      fg = '#33ccff',
+      fg = '#ffff99',
       bg = 'bg'
     }
   },
@@ -189,13 +195,14 @@ components.active[1][3] = {
     hl = function()
       local val = {}
 
-      val.fg ='#33ccff'
+      val.fg ='#ffff99'
 
       return val
     end
   }
 }
--- MID
+
+-- // MID //
 
 -- gitBranch
 components.active[2][1] = {
@@ -203,22 +210,22 @@ components.active[2][1] = {
 
   hl = {
     fg = 'black',
-    bg = 'oceanblue',
+    bg = '#ff99cc',
     style = 'bold'
   },
 
   left_sep = {
     str = separators.left_rounded,
     h1 = {
-      fg = 'oceanblue',
+      fg = '#ff99cc',
       bg = 'bg'
     }
   },
 
   right_sep = {
-    str = ' ',
+    str = separators.right_rounded,
     h1 = {
-      fg = 'oceanblue',
+      fg = '#ff99cc',
       bg = 'bg'
     }
   }
@@ -228,7 +235,7 @@ components.active[2][2] = {
   provider = 'git_diff_added',
 
   hl = {
-    fg = 'green',
+    fg = '#99ff99',
     bg = 'bg',
     style = 'bold'
   },
@@ -238,7 +245,7 @@ components.active[2][2] = {
 components.active[2][3] = {
   provider = 'git_diff_changed',
   hl = {
-    fg = 'orange',
+    fg = 'naranjita',
     bg = 'bg',
     style = 'bold'
   },
@@ -256,7 +263,11 @@ components.active[2][4] = {
 -- diagnosticErrors
 components.active[2][5] = {
   provider = 'diagnostic_errors',
-  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR) end,
+
+  enabled = function()
+    return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
+  end,
+
   hl = {
     fg = 'red',
     style = 'bold'
@@ -265,56 +276,71 @@ components.active[2][5] = {
 -- diagnosticWarn
 components.active[2][6] = {
   provider = 'diagnostic_warnings',
-  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
+
+  enabled = function()
+    return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
+  end,
+
   hl = {
-    fg = 'yellow',
+    fg = '#ffff80',
     style = 'bold'
   },
 }
 -- diagnosticHint
 components.active[2][7] = {
   provider = 'diagnostic_hints',
-  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
+
+  enabled = function()
+    return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
+  end,
+
   hl = {
-    fg = 'cyan',
+    fg = '#99ccff',
     style = 'bold'
   },
 }
 -- diagnosticInfo
 components.active[2][8] = {
   provider = 'diagnostic_info',
-  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.INFO) end,
+
+  enabled = function()
+    return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
+  end,
+
   hl = {
-    fg = 'skyblue',
+    fg = 'moradito',
     style = 'bold'
   },
 }
 
--- RIGHT
+-- // RIGHT //
 
 -- LspName
 components.active[3][1] = {
   provider = 'lsp_client_names',
   hl = {
     fg = 'black',
-    bg = '#dd21ce',
+    bg = 'lila',
     style = 'bold'
   },
 
   left_sep = {
     str = separators.left_rounded,
     hl = {
-      fg = '#dd21ce'
+      fg = 'lila',
+      bg = 'bg'
     }
   },
 
   right_sep = {
     str = separators.slant_right_2,
     hl = {
-      fg = '#dd21ce'
+      fg = 'lila',
+      bg = 'bg'
     }
   },
 }
+
 -- fileIcon
 components.active[3][2] = {
   provider = function()
@@ -366,16 +392,19 @@ components.active[3][2] = {
 -- fileType
 components.active[3][3] = {
   provider = 'file_type',
+
   hl = function()
     local val = {}
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+
     if icon ~= nil then
       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
     else
       val.fg = 'black'
     end
+
     val.bg = 'bg'
     val.style = 'bold'
     return val
@@ -392,18 +421,23 @@ components.active[3][3] = {
 -- fileSize
 components.active[3][4] = {
   provider = 'file_size',
-  enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
+
+  enabled = function()
+    return vim.fn.getfsize(vim.fn.expand('%:t')) > 0
+  end,
+
   hl = {
-    fg = 'skyblue',
+    fg = 'moradito',
     bg = 'bg',
     style = 'bold'
   },
   right_sep = ' '
 }
+
 -- fileFormat
 components.active[3][5] = {
   provider = function()
-    return '' .. vim.bo.fileformat:upper() .. ' '
+    return vim.bo.fileformat:upper() .. ' '
   end,
 
   hl = {
@@ -422,57 +456,19 @@ components.active[3][5] = {
 
   right_sep = ' '
 }
--- fileEncode
---[[ components.active[3][6] = { ]]
---[[   provider = 'file_encoding', ]]
---[[   hl = { ]]
---[[     fg = 'white', ]]
---[[     bg = 'bg', ]]
---[[     style = 'bold' ]]
---[[   }, ]]
---[[   right_sep = ' ' ]]
---[[ } ]]
 
--- lineInfo
-components.active[3][8] = {
-  provider = 'position',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
--- linePercent
-components.active[3][9] = {
-  provider = 'line_percentage',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
-
--- scrollBar
-components.active[3][10] = {
-  provider = 'scroll_bar',
-  hl = {
-    fg = 'yellow',
-    bg = 'bg',
-  },
-}
-
--- INACTIVE
+-- // INACTIVE //
 
 -- fileType
 components.inactive[1][1] = {
   provider = 'file_type',
+
   hl = {
     fg = 'black',
     bg = 'cyan',
     style = 'bold'
   },
+
   left_sep = {
     str = ' ',
     hl = {
@@ -480,6 +476,7 @@ components.inactive[1][1] = {
       bg = 'cyan'
     }
   },
+
   right_sep = {
     {
       str = ' ',
