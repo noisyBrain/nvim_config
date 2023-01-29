@@ -163,7 +163,7 @@ ntree.setup {
         require_confirm = true,
       },
       live_filter = {
-        prefix = "[FILTER]: ",
+        prefix = " Filter: ",
         always_show_folders = true,
       },
       log = {
