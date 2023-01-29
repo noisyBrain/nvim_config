@@ -13,36 +13,59 @@ local components = {
   inactive = {{}, {}, {}},
 }
 
--- local colors = {
---   bg = '#282828',
---   black = '#282828',
---   yellow = '#d8a657',
---   cyan = '#89b482',
---   oceanblue = '#45707a',
---   green = '#a9b665',
---   orange = '#e78a4e',
---   violet = '#d3869b',
---   magenta = '#c14a4a',
---   white = '#a89984',
---   fg = '#a89984',
---   skyblue = '#7daea3',
---   red = '#ea6962',
--- }
+local separators = {
+  vertical_bar = '┃',
+  vertical_bar_thin =	'│',
+  left = '',
+  right = '',
+  block = '█',
+  left_filled = '',
+  right_filled = '',
+  slant_left = '',
+  slant_left_thin =	'',
+  slant_right = '',
+  slant_right_thin = '',
+  slant_left_2 = '',
+  slant_left_2_thin =	'',
+  slant_right_2 = '',
+  slant_right_2_thin = '',
+  left_rounded = ' ',
+  left_rounded_thin = '',
+  right_rounded = '',
+  right_rounded_thin = '',
+  circle = ''
+}
+
+local colors2 = {
+  bg = '#1e1e2e',
+  black = '#11111b',
+  yellow = '#f9e2af',
+  cyan = '#74c7ec',
+  oceanblue = '#89b4fa',
+  green = '#a6e3a1',
+  orange = '#fab387',
+  violet = '#b4befe',
+  magenta = '#cba6f7',
+  white = '#f5e0dc',
+  fg = '#f2cdcd',
+  skyblue = '#89dceb',
+  red = '#f38ba8',
+}
 
 local colors = {
-  bg = '#373737',
-  black = '#282828',
-  yellow = '#EBCB8B',
-  cyan = '#89b482',
-  oceanblue = '#45707a',
-  green = '#A3BE8C',
-  orange = '#D08770',
-  violet = '#d3869b',
-  magenta = '#B48EAD',
-  white = '#a89984',
-  fg = '#282828',
-  skyblue = '#88C0D0',
-  red = '#BF616A',
+  bg = '#1e1e2e',
+  black = '#11111b',
+  yellow = '#E5C07B', -- yellow
+  cyan = '#56B6C2', -- turquesa
+  oceanblue = '#89b4fa',
+  green = '#33ff99',
+  orange = '#ff9900',
+  violet = '#b4befe',
+  magenta = '#cba6f7',
+  white = '#f5e0dc',
+  fg = '#f2cdcd',
+  skyblue = '#61AFEF', -- lightblue
+  red = '#E06C75', -- red
 }
 
 local vi_mode_colors = {
@@ -64,37 +87,22 @@ local vi_mode_colors = {
 }
 
 local vi_mode_text = {
-  NORMAL = '<|',
-  OP = '<|',
-  INSERT = '|>',
-  VISUAL = '<>',
-  LINES = '<>',
-  BLOCK = '<>',
-  REPLACE = '<>',
-  ['V-REPLACE'] = '<>',
-  ENTER = '<>',
-  MORE = '<>',
-  SELECT = '<>',
-  COMMAND = '<|',
-  SHELL = '<|',
-  TERM = '<|',
-  NONE = '<>'
+  NORMAL = ' ' .. separators.slant_left .. separators.slant_right_2,
+  OP = ' ',
+  INSERT = ' ' .. separators.slant_left .. separators.slant_right_2,
+  VISUAL = ' ',
+  LINES = ' ',
+  BLOCK = ' █',
+  REPLACE = '<> ',
+  ['V-REPLACE'] = ' ',
+  ENTER = '<> ',
+  MORE = '<> ',
+  SELECT = '  ',
+  COMMAND = '  ',
+  SHELL = '',
+  TERM = ' ',
+  NONE = ' '
 }
-
--- local buffer_not_empty = function()
---   if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
---     return true
---   end
---   return false
--- end
---
--- local checkwidth = function()
---   local squeeze_width  = vim.fn.winwidth(0) / 2
---   if squeeze_width > 40 then
---     return true
---   end
---   return false
--- end
 
 force_inactive.filetypes = {
   'NvimTree',
@@ -113,7 +121,7 @@ force_inactive.buftypes = {
 
 -- vi-mode
 components.active[1][1] = {
-  provider = ' NV-IDE ',
+  provider = '   ',
   hl = function()
     local val = {}
 
@@ -123,8 +131,19 @@ components.active[1][1] = {
 
     return val
   end,
-  right_sep = ' '
+
+  right_sep = {
+    str = separators.slant_right_2,
+    hl = function()
+      local val = {}
+
+      val.fg = vi_mode_utils.get_mode_color()
+
+      return val
+    end
+  }
 }
+
 -- vi-symbol
 components.active[1][2] = {
   provider = function()
@@ -132,30 +151,48 @@ components.active[1][2] = {
   end,
   hl = function()
     local val = {}
+
     val.fg = vi_mode_utils.get_mode_color()
     val.bg = 'bg'
     val.style = 'bold'
+
     return val
   end,
-  right_sep = ' '
 }
+
 -- filename
 components.active[1][3] = {
   provider = function()
     return vim.fn.expand("%:F")
   end,
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = {
-    str = ' > ',
+
+  hl = function ()
+    local val = {}
+
+    val.fg = 'black'
+    val.bg = '#33ccff'
+    val.style = 'italic'
+
+    return val
+  end,
+
+  left_sep = {
+    str = ' ' .. separators.slant_left,
     hl = {
-      fg = 'white',
-      bg = 'bg',
-      style = 'bold'
-    },
+      fg = '#33ccff',
+      bg = 'bg'
+    }
+  },
+
+  right_sep = {
+    str = separators.right_rounded,
+    hl = function()
+      local val = {}
+
+      val.fg ='#33ccff'
+
+      return val
+    end
   }
 }
 -- MID
@@ -163,21 +200,40 @@ components.active[1][3] = {
 -- gitBranch
 components.active[2][1] = {
   provider = 'git_branch',
+
   hl = {
-    fg = 'yellow',
-    bg = 'bg',
+    fg = 'black',
+    bg = 'oceanblue',
     style = 'bold'
+  },
+
+  left_sep = {
+    str = separators.left_rounded,
+    h1 = {
+      fg = 'oceanblue',
+      bg = 'bg'
+    }
+  },
+
+  right_sep = {
+    str = ' ',
+    h1 = {
+      fg = 'oceanblue',
+      bg = 'bg'
+    }
   }
 }
 -- diffAdd
 components.active[2][2] = {
   provider = 'git_diff_added',
+
   hl = {
     fg = 'green',
     bg = 'bg',
     style = 'bold'
-  }
+  },
 }
+
 -- diffModfified
 components.active[2][3] = {
   provider = 'git_diff_changed',
@@ -185,8 +241,9 @@ components.active[2][3] = {
     fg = 'orange',
     bg = 'bg',
     style = 'bold'
-  }
+  },
 }
+
 -- diffRemove
 components.active[2][4] = {
   provider = 'git_diff_removed',
@@ -203,7 +260,7 @@ components.active[2][5] = {
   hl = {
     fg = 'red',
     style = 'bold'
-  }
+  },
 }
 -- diagnosticWarn
 components.active[2][6] = {
@@ -212,7 +269,7 @@ components.active[2][6] = {
   hl = {
     fg = 'yellow',
     style = 'bold'
-  }
+  },
 }
 -- diagnosticHint
 components.active[2][7] = {
@@ -221,7 +278,7 @@ components.active[2][7] = {
   hl = {
     fg = 'cyan',
     style = 'bold'
-  }
+  },
 }
 -- diagnosticInfo
 components.active[2][8] = {
@@ -230,7 +287,7 @@ components.active[2][8] = {
   hl = {
     fg = 'skyblue',
     style = 'bold'
-  }
+  },
 }
 
 -- RIGHT
@@ -239,38 +296,72 @@ components.active[2][8] = {
 components.active[3][1] = {
   provider = 'lsp_client_names',
   hl = {
-    fg = 'yellow',
-    bg = 'bg',
+    fg = 'black',
+    bg = '#dd21ce',
     style = 'bold'
   },
-  right_sep = ' '
+
+  left_sep = {
+    str = separators.left_rounded,
+    hl = {
+      fg = '#dd21ce'
+    }
+  },
+
+  right_sep = {
+    str = separators.slant_right_2,
+    hl = {
+      fg = '#dd21ce'
+    }
+  },
 }
 -- fileIcon
 components.active[3][2] = {
   provider = function()
+
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
+
     if icon == nil then
       icon = ''
     end
     return icon
+
   end,
+
   hl = function()
+
     local val = {}
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+
     if icon ~= nil then
       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
     else
       val.fg = 'white'
     end
+
     val.bg = 'bg'
     val.style = 'bold'
+
     return val
   end,
-  right_sep = ' '
+
+  left_sep = {
+    str = separators.left_rounded,
+    hl = {
+      fg = 'bg',
+    }
+  },
+
+  right_sep = {
+    str = ' ',
+    hl = {
+      bg = 'bg'
+    }
+  }
 }
 -- fileType
 components.active[3][3] = {
@@ -283,14 +374,21 @@ components.active[3][3] = {
     if icon ~= nil then
       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
     else
-      val.fg = 'white'
+      val.fg = 'black'
     end
     val.bg = 'bg'
     val.style = 'bold'
     return val
   end,
-  right_sep = ' '
+
+  right_sep = {
+    str = separators.slant_right .. ' ',
+    hl = {
+      fg = 'bg'
+    }
+  }
 }
+
 -- fileSize
 components.active[3][4] = {
   provider = 'file_size',
@@ -304,24 +402,37 @@ components.active[3][4] = {
 }
 -- fileFormat
 components.active[3][5] = {
-  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
+  provider = function()
+    return '' .. vim.bo.fileformat:upper() .. ' '
+  end,
+
   hl = {
-    fg = 'white',
-    bg = 'bg',
+    fg = 'black',
+    bg = 'white',
     style = 'bold'
   },
+
+  left_sep = {
+    str = separators.slant_left_2,
+    h1 = {
+      fg = 'white',
+      bg = 'bg'
+    }
+  },
+
   right_sep = ' '
 }
 -- fileEncode
-components.active[3][6] = {
-  provider = 'file_encoding',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
+--[[ components.active[3][6] = { ]]
+--[[   provider = 'file_encoding', ]]
+--[[   hl = { ]]
+--[[     fg = 'white', ]]
+--[[     bg = 'bg', ]]
+--[[     style = 'bold' ]]
+--[[   }, ]]
+--[[   right_sep = ' ' ]]
+--[[ } ]]
+
 -- lineInfo
 components.active[3][8] = {
   provider = 'position',
@@ -342,6 +453,7 @@ components.active[3][9] = {
   },
   right_sep = ' '
 }
+
 -- scrollBar
 components.active[3][10] = {
   provider = 'scroll_bar',
