@@ -24,12 +24,12 @@ local mappings = {
   {"n", "<leader>r", ":so %<cr>"},
 
   -- Buffers
-  {"n", "<leader>ef", ":bd<cr>"},
+  {"n", "<leader>ef", ":bdelete!<cr>"},
 
   -- Prettier
   {"n", "<leader>pt", ":Prettier<cr>"},
 
-  -- No hightlight
+  -- Split window
   {"n", "<leader>vs", ":vsplit<cr>"},
   {"n", "<leader>s", ":split<cr>"},
 
