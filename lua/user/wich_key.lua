@@ -108,30 +108,18 @@ local gs = require("gitsigns")
    s = { "<cmd>Gitsigns stage_hunk<cr>", "stage hunk" },
    r = { "<cmd>Gitsigns reset_hunk<cr>", "reset hunk" },
    b = { "<cmd>Gitsigns stage_buffer<cr>", "stage buffer" },
-   u = {gs.undo_stage_hunk, "undo stage junk"},
-   R = {gs.reset_buffer, "reset buffer"},
-   P = {gs.preview_hunk, "preview hunk"},
-   B = {function() gs.blame_line({full = true}) end, "blame line"},
-   d = {gs.diffthis, "show diff in the file"},
-   v = {"<cmd>DiffviewOpen<cr>", "show diff in any files"},
-   c = {"<cmd>DiffviewClose<cr>", "close gitdiff"},
-   g = {"<cmd>Neogit kind=tab<cr>", "Git management"},
+   u = { gs.undo_stage_hunk, "undo stage junk"},
+   R = { gs.reset_buffer, "reset buffer"},
+   P = { gs.preview_hunk, "preview hunk"},
+   B = { function() gs.blame_line({full = true}) end, "blame line"},
+   d = { gs.diffthis, "show diff in the file"},
+   v = { "<cmd>DiffviewOpen<cr>", "show diff in any files"},
+   c = { "<cmd>DiffviewClose<cr>", "close gitdiff"},
+   g = { "<cmd>Neogit kind=tab<cr>", "Git management"},
  }
 
- -- TODO: Fix [e and ]e shortcuts
  local lsp = {
    name = "Lsp",
-   -- a = {function() require("lspsaga.codeaction").code_action(opts) end, "code action"},
-   -- f = {require("lspsaga.finder").lsp_finder, "find definitions and references"},
-   -- o = {require("lspsaga.hover").render_hover_doc, "show documentation"},
-   -- s = {vim.lsp.buf.signature_help, "show signature and doc."},
-   -- r = {require("lspsaga.rename").lsp_rename, "rename identifiers"},
-   -- p = {require("lspsaga.definition").preview_definition, "preview definition"},
-   -- d = {require("lspsaga.diagnostic").show_line_diagnostics, "show inline diagnostics"},
-   -- ["[e"] = {require("lspsaga.diagnostic").goto_prev, "goto previous error"},
-   -- ["]e"] = {require("lspsaga.diagnostic").goto_next, "goto next error"},
-   -- ["[E"] = {require("lspsaga.diagnostic").goto_prev{severity = vim.diagnostic.severity.ERROR}, "goto previous error"},
-   -- ["]E"] = {require("lspsaga.diagnostic").goto_next{severity = vim.diagnostic.severity.ERROR}, "goto previous error"},
    a = { ':Lspsaga code_action<cr>', 'code action' },
    f = { ':Lspsaga lsp_finder<cr>', 'find definitions and references' },
    o = { ':Lspsaga hover_doc<cr>', 'show documentation' },
@@ -146,14 +134,14 @@ local gs = require("gitsigns")
    name = "Testing",
    n = { function() require("neotest").jump.next({status = 'failed'}) end, "jump next failed test"},
    p = { function() require("neotest").jump.prev({status = 'failed'} )end, "jump next failed test"},
-   s = {function() require("neotest").summary.toggle() end, "test summary"},
-   a = {function() require('neotest').run.attach({}) end, "attach to the current test runner"},
-   S = {function() require('neotest').run.stop({}) end, "stop test" },
-   r = {function() require('neotest').run.run()  end, "run current test" },
-   l = {function() require('neotest').run.run_last()  end, "run last test" },
-   o = {function() require('neotest').output.open({enter = true, short = true}) end, "open test output"},
-   R = {function() require('neotest').run.run(vim.fn.expand('%')) end, "run all test in this file"},
- }
+   s = { function() require("neotest").summary.toggle() end, "test summary"},
+   a = { function() require('neotest').run.attach({}) end, "attach to the current test runner"},
+   S = { function() require('neotest').run.stop({}) end, "stop test" },
+   r = { function() require('neotest').run.run()  end, "run current test" },
+   l = { function() require('neotest').run.run_last()  end, "run last test" },
+   o = { function() require('neotest').output.open({enter = true, short = true}) end, "open test output"},
+   R = { function() require('neotest').run.run(vim.fn.expand('%')) end, "run all test in this file"},
+  }
 
  local github = {
    name = "Github",
@@ -231,18 +219,12 @@ local gs = require("gitsigns")
    m = {"<cmd>:ZenMode<cr>", "Toggle ZenMode"},
  }
 
-
-
-
--- local db = {}
--- local telescope = {}
-
-key.register(files, { prefix = "<leader>f"})
-key.register(git, { prefix = "<leader>g"})
-key.register(github, { prefix = "<leader>h"})
-key.register(lsp, {prefix = "<leader>l"})
-key.register(test, {prefix = "<leader>t"})
-key.register(harpoon, {prefix = "<leader>m"})
-key.register(packer, {prefix = "<leader>p"})
-key.register(markown, {prefix = "<leader>M"})
-key.register(zenmode, {prefix = "<leader>z"})
+key.register(files, { prefix = "<leader>f" })
+key.register(git, { prefix = "<leader>g" })
+key.register(github, { prefix = "<leader>h" })
+key.register(lsp, { prefix = "<leader>l" })
+key.register(test, { prefix = "<leader>t" })
+key.register(harpoon, { prefix = "<leader>m" })
+key.register(packer, { prefix = "<leader>p" })
+key.register(markown, { prefix = "<leader>M" })
+key.register(zenmode, { prefix = "<leader>z" })
