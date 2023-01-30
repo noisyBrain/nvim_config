@@ -13,3 +13,4 @@ function Load_according_filetype(filetype, plugin_name, config)
     require(tostring(plugin_name))(config)
   end
 end
+
