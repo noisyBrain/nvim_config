@@ -1,5 +1,9 @@
 local key = SafeRequire("which-key")
 
+if not key then
+  return
+end
+
 key.setup {
 plugins = {
     marks = false, -- shows a list of your marks on ' and `
@@ -75,16 +79,20 @@ local opts = {
   nowait = false,
 }
 
+local find_nvim_config = function()
+end
+
 local files = {
   name = "Files",
-  n = {"<cmd>:DashboardNewFile<cr>", "create new file"},
-  h = {"<cmd>new<cr>", "create new buffer in horizontal"},
-  v = {"<cmd>:vnew<cr>", "create new buffer in vertical"},
-  f = {"<cmd>lua require('telescope.builtin').find_files( require('telescope.themes').get_dropdown({previewer = false}))<cr>", "find files"},
-  g = {"<cmd>Telescope live_grep<cr>", "search any world"},
-  x = {"<cmd>:bd<cr>", "close current buffer"},
-  s = {"<cmd>:write<cr>", "write changes"},
+  h = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "help tags" },
+  f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "find files" },
+  g = { "<cmd>Telescope live_grep<cr>", "search any world" },
   e = {"<cmd>:NvimTreeToggle<cr>", "show tree"},
+  n = { "<cmd>lua require('telescope.builtin').find_files({ prompt_title = ' Find config ', cwd = '~/.config/nvim/'})<cr>", "find nvim config" },
+  -- x = {},
+  -- h = {},
+  -- v = {},
+  -- s = {},
 }
 
 local gs = require("gitsigns")
