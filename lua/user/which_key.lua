@@ -113,17 +113,18 @@ local gs = require("gitsigns")
       return '<Ignore>'
      end, "go to previous hunk",
    },
+   a = { "<cmd>Gitsigns blame_line<cr>", "simple git blame" },
+   b = { "<cmd>Gitsigns stage_buffer<cr>", "stage buffer" },
+   c = { "<cmd>DiffviewClose<cr>", "close gitdiff" },
+   d = { gs.diffthis, "show diff in the file" },
+   g = { "<cmd>Neogit kind=tab<cr>", "Git management" },
    s = { "<cmd>Gitsigns stage_hunk<cr>", "stage hunk" },
    r = { "<cmd>Gitsigns reset_hunk<cr>", "reset hunk" },
-   b = { "<cmd>Gitsigns stage_buffer<cr>", "stage buffer" },
-   u = { gs.undo_stage_hunk, "undo stage junk"},
-   R = { gs.reset_buffer, "reset buffer"},
-   P = { gs.preview_hunk, "preview hunk"},
-   B = { function() gs.blame_line({full = true}) end, "blame line"},
-   d = { gs.diffthis, "show diff in the file"},
+   u = { gs.undo_stage_hunk, "undo stage junk" },
    v = { "<cmd>DiffviewOpen<cr>", "show diff in any files"},
-   c = { "<cmd>DiffviewClose<cr>", "close gitdiff"},
-   g = { "<cmd>Neogit kind=tab<cr>", "Git management"},
+   B = { function() gs.blame_line({full = true}) end, "blame line" },
+   P = { gs.preview_hunk, "preview hunk" },
+   R = { gs.reset_buffer, "reset buffer" },
  }
 
  local lsp = {

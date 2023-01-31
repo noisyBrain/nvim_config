@@ -1,9 +1,8 @@
 local opts = { noremap = true, silent = true }
-local telescope_mapings = require('telescope.init')
-
-
 local keymap = vim.api.nvim_set_keymap
+
 keymap("", "<Space>", "<Nop>", opts)
+
 vim.g.mapleader = " "
 
 local mappings = {
@@ -80,3 +79,4 @@ end
 
 
 setKeymap(mappings)
+

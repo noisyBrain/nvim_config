@@ -123,9 +123,6 @@ return packer.startup(function(use)
   -- Neogit
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' }
 
-  -- Dashboard
-  use {'glepnir/dashboard-nvim'}
-
   -- dadbod for database management
   use {'tpope/vim-dadbod', 'kristijanhusak/vim-dadbod-ui'}
 
