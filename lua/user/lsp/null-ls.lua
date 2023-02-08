@@ -15,7 +15,7 @@ null_ls.setup({
     formatting.deno_fmt,
     formatting.fixjson,
     formatting.sql_formatter,
-    -- diagnostics.flake8
     diagnostics.yamllint,
+    diagnostics.eslint,
 	},
 })

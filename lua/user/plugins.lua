@@ -82,7 +82,7 @@ return packer.startup(function(use)
 
   --Lsp Stuff
   use({ "williamboman/mason.nvim", branch = "fix/api-fast-event", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
   -- Telescope
   use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
