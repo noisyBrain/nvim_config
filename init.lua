@@ -23,6 +23,7 @@ local config_files = {
   "litee",
   "gh",
   "harpoon",
+  "prettier"
 }
 
 for _ , file  in ipairs(config_files ) do
