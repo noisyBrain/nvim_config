@@ -6,6 +6,7 @@ local function open_nvim_tree(data)
   if real_file or no_name then
     local parent_dir = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
     vim.cmd.cd(parent_dir)
+    vim.cmd.cd('../')
     require("nvim-tree.api").tree.open()
   end
 
