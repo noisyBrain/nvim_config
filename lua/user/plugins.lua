@@ -79,13 +79,6 @@ return packer.startup(function(use)
   -- Colorizer
   use({ "norcalli/nvim-colorizer.lua" })
 
-  -- Dashboard
-  use({ "glepnir/dashboard-nvim", requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('dashboard').setup{}
-    end
-  })
-
   --Lsp Stuff
   use({ "williamboman/mason.nvim", branch = "fix/api-fast-event", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters

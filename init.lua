@@ -13,7 +13,6 @@ local config_files = {
   "comments",
   "tmux",
   "neogit",
-  "dashboard",
   "gitsigns",
   "nvim_tree",
   "bufferline",
