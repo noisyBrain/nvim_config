@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim"
+    ],
+    "diagnostics.disable": [
+        "need-check-nil"
+    ]
+}
+

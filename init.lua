@@ -4,7 +4,7 @@ local config_files = {
   "utils",
   "keymaps",
   "plugins",
-  "tokyonight",
+  "onedark",
   "cmp",
   "mason_config",
   "telescope",
@@ -13,6 +13,7 @@ local config_files = {
   "comments",
   "tmux",
   "neogit",
+  "dashboard",
   "gitsigns",
   "nvim_tree",
   "bufferline",
@@ -20,12 +21,13 @@ local config_files = {
   "feline_bar",
   "which_key",
   "surround",
-  "litee",
+  "colorizer",
   "gh",
   "harpoon",
-  "prettier"
+  "prettier",
+  "autoopen_ntree"
 }
 
-for _ , file  in ipairs(config_files ) do
+for _, file  in ipairs(config_files ) do
   require(subdir .. "." .. file)
 end
