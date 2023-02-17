@@ -169,6 +169,12 @@ components.active[1][2] = {
 -- filename
 components.active[1][3] = {
   provider = function()
+    local filename = vim.fn.expand("%:F")
+    if string.len(filename) > 30 then
+      filename = '...' .. string.sub(filename, -30)
+      return filename
+    end
+
     return vim.fn.expand("%:F")
   end,
 
