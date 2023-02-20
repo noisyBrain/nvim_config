@@ -89,11 +89,11 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'}
+    run = ':TSUpdate'
+  }
 
-  -- Rainbown
-  use "p00f/nvim-ts-rainbow"
-
+  -- Dressing
+  use ({ 'stevearc/dressing.nvim' })
 
   -- Colorizer
   use({ "norcalli/nvim-colorizer.lua" })
