@@ -10,7 +10,7 @@ ntree.setup {
     open_on_tab = false,
     ignore_buf_on_tab_change = {},
     sort_by = "name",
-    root_dirs = { '~/.config/' },
+    root_dirs = {},
     prefer_startup_root = true,
     sync_root_with_cwd = true,
     reload_on_bufenter = false,
@@ -157,7 +157,7 @@ ntree.setup {
       require_confirm = true,
     },
     live_filter = {
-      prefix = "[FILTER]: ",
+      prefix = " : ",
       always_show_folders = true,
     },
     log = {
