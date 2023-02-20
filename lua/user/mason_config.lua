@@ -7,7 +7,7 @@ local servers = {
   "emmet_ls",
   "jsonls",
   "yamlls",
-  "sumneko_lua",
+  "lua_ls",
   "tsserver",
 }
 
@@ -25,7 +25,7 @@ mason_config.setup {
   ensure_installed = servers,
 }
 
-require("lspconfig").sumneko_lua.setup {
+require("lspconfig").lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
