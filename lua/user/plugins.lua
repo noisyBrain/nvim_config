@@ -76,9 +76,6 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- used before commit = "d27a83a363e61009278b6598703a763ce9c8e617"
 
-  -- Colorizer
-  use({ "norcalli/nvim-colorizer.lua" })
-
   --Lsp Stuff
   use({ "williamboman/mason.nvim", branch = "fix/api-fast-event", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
@@ -96,6 +93,13 @@ return packer.startup(function(use)
 
   -- Rainbown
   use "p00f/nvim-ts-rainbow"
+
+
+  -- Colorizer
+  use({ "norcalli/nvim-colorizer.lua" })
+
+  -- Blankline
+  use({ "lukas-reineke/indent-blankline.nvim"})
 
     -- nvim-comments
   use({ "numToStr/Comment.nvim" })

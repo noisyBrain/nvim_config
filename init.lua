@@ -18,6 +18,7 @@ local config_files = {
   "bufferline",
   "lsp",
   "feline_bar",
+  "blankline",
   "which_key",
   "surround",
   "colorizer",
