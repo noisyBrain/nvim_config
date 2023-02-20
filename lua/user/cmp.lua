@@ -31,7 +31,7 @@ local kind_icons = {
   Folder = "",
   EnumMember = "",
   Constant = "",
-  Struct = "",
+  Struct = " ",
   Event = "",
   Operator = "",
   TypeParameter = "",
@@ -91,8 +91,8 @@ cmp.setup {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[NVIM ]",
@@ -115,12 +115,11 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
   },
   experimental = {
     ghost_text = false,
-    native = false,
+    native = true,
   },
 }
