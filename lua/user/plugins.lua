@@ -74,7 +74,7 @@ return packer.startup(function(use)
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- used before commit = "d27a83a363e61009278b6598703a763ce9c8e617"
+	use({ "rafamadriz/friendly-snippets" }) -- commit = "d27a83a363e61009278b6598703a763ce9c8e617"
 
   --Lsp Stuff
   use({ "williamboman/mason.nvim", branch = "fix/api-fast-event", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
@@ -82,18 +82,19 @@ return packer.startup(function(use)
 
   -- Telescope
   use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
-  use({'nvim-lua/popup.nvim'})
-  use({ 'nvim-telescope/telescope-media-files.nvim'})
-  use({'xiyaowong/telescope-emoji.nvim'})
+  use({ "nvim-telescope/telescope-ui-select.nvim" })
+  use({ "nvim-telescope/telescope-media-files.nvim" })
+  use({ "xiyaowong/telescope-emoji.nvim" })
+  use({ "nvim-lua/popup.nvim" })
 
   -- Treesitter
-  use {
+  use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
-  }
+  })
 
   -- Dressing
-  use ({ 'stevearc/dressing.nvim' })
+  use({ 'stevearc/dressing.nvim' })
 
   -- Colorizer
   use({ "norcalli/nvim-colorizer.lua" })
@@ -106,7 +107,7 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" })
 
   -- Prettier
-  use { 'MunifTanjim/prettier.nvim' }
+  use({ 'MunifTanjim/prettier.nvim' })
 
   -- Tmux navigation
   use({ "aserowy/tmux.nvim"})
