@@ -11,3 +11,9 @@ My personal setup
 
 ![nvim_telescope](https://user-images.githubusercontent.com/95882962/216175021-0a580952-9d91-4208-a95a-c040d19bcc58.png)
 Telescope!
+
+You can download this setup with the next command:
+```
+curl -s https://raw.githubusercontent.com/noisyBrain/nvim_config/main/setup.sh | bash
+```
+That line will delete all your previous setup and install this one. Be careful and make a backup if it's necessary!
