@@ -55,6 +55,8 @@ return packer.startup(function(use)
 
   -- autopairs
   use { "windwp/nvim-autopairs" }
+
+  -- Markdown previewer
   use(
     { "iamcco/markdown-preview.nvim",
       run = "cd app && npm install",
@@ -70,14 +72,16 @@ return packer.startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp" }) -- , commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8"
   use({ "hrsh7th/cmp-nvim-lua" }) -- , commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21"
   use({ "hrsh7th/cmp-cmdline" })
-  use({ "glepnir/lspsaga.nvim", branch = 'main' })
+  use({ "glepnir/lspsaga.nvim" })
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- commit = "d27a83a363e61009278b6598703a763ce9c8e617"
 
   --Lsp Stuff
-  use({ "williamboman/mason.nvim", branch = "fix/api-fast-event", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+  use("neovim/nvim-lspconfig")
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
   -- Telescope

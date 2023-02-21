@@ -26,27 +26,19 @@ mason_config.setup {
 }
 
 require("lspconfig").lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        version = "Lua 5.3",
-        path = {
-          '?.lua',
-          '?/init.lua',
-          vim.fn.expand'~/.luarocks/share/lua/5.3/?.lua',
-          vim.fn.expand'~/.luarocks/share/lua/5.3/?/init.lua',
-          '/usr/share/5.3/?.lua',
-          '/usr/share/lua/5.3/?/init.lua'
-        }
-      },
-      workspace = {
-        library = {
-          vim.fn.expand'~/.luarocks/share/lua/5.3',
-          '/usr/share/lua/5.3'
-        }
-      }
-    }
-  }
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+		},
+	},
 }
 
 local group = vim.api.nvim_create_augroup("MasonLspGroup", { clear = true })
