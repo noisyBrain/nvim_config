@@ -5,8 +5,10 @@ saga.setup({
   --the range of 0 for fully opaque window (disabled) to 100 for fully
   --transparent background. Values between 0-30 are typically most useful.
   saga_winblend = 30,
-
   -- when cursor in saga window you config these to move
+  diagnostic = {
+    on_insert = false
+  },
   move_in_saga = { prev = '<C-p>',next = '<C-n>'},
   -- Error, Warn, Info, Hint
   -- use emoji like
