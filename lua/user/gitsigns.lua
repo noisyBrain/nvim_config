@@ -76,10 +76,6 @@ gitsigns.setup {
     -- map('n', '<leader>td', gs.toggle_deleted)
     map("n", "<leader>hn", ":Gitsigns next_hunk<CR>")
     map("n", "<leader>hN", ":Gitsigns prev_hunk<CR>")
-
-
-    -- Text object
-    -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
 
