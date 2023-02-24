@@ -23,7 +23,7 @@ onedark.setup {
     },
 
     -- Custom Highlights --
-    colors = {}, -- Override default colors
+    colors = {},
     highlights = {}, -- Override highlight groups
 
     -- Plugins Config --
