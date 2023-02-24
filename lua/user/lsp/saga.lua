@@ -1,11 +1,6 @@
 local saga = SafeRequire( "lspsaga")
 
 saga.setup({
-  border_style = "single",
-  --the range of 0 for fully opaque window (disabled) to 100 for fully
-  --transparent background. Values between 0-30 are typically most useful.
-  saga_winblend = 30,
-  -- when cursor in saga window you config these to move
   diagnostic = {
     on_insert = false
   },
@@ -83,5 +78,20 @@ saga.setup({
     -- auto refresh when change buffer
     auto_refresh = true,
   },
+  ui = {
+    border = 'rounded',
+    title = true,
+    winblend = 0,
+    expand = '',
+    collapse = '',
+    code_action = '💡',
+    incoming = ' ',
+    outgoing = ' ',
+    hover = ' ',
+    kind = {},
+  },
+  init_hightlight = {
+
+  }
 })
 
