@@ -49,6 +49,7 @@ return packer.startup(function(use)
  -- themes
   use 'folke/tokyonight.nvim'
   use 'navarasu/onedark.nvim'
+  use 'catppuccin/nvim'
 
   -- Lua
   use { "folke/zen-mode.nvim" }
@@ -79,9 +80,7 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" }) -- commit = "d27a83a363e61009278b6598703a763ce9c8e617"
 
   --Lsp Stuff
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("neovim/nvim-lspconfig")
+  use({ "williamboman/mason.nvim", requires = { "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" } })
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
   -- Telescope
@@ -97,14 +96,13 @@ return packer.startup(function(use)
     run = ':TSUpdate'
   })
 
-  -- Dressing
-  use({ 'stevearc/dressing.nvim' })
+  -- UI
+  use({ "stevearc/dressing.nvim" })
+  use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim" } })
+  use({ "lukas-reineke/indent-blankline.nvim"})
 
   -- Colorizer
   use({ "norcalli/nvim-colorizer.lua" })
-
-  -- Blankline
-  use({ "lukas-reineke/indent-blankline.nvim"})
 
     -- nvim-comments
   use({ "numToStr/Comment.nvim" })
@@ -114,7 +112,7 @@ return packer.startup(function(use)
   use({ 'MunifTanjim/prettier.nvim' })
 
   -- Tmux navigation
-  use({ "aserowy/tmux.nvim"})
+  use({ "aserowy/tmux.nvim" })
 
   -- Neotest
   use {
