@@ -5,7 +5,7 @@
         "nvim_buf_set_lines",
         "nvim_open_win",
         "call",
-        "nvim_win_set_option"
+        "nvim_win_set_option",
     ],
     "diagnostics.disable": [
         "need-check-nil"

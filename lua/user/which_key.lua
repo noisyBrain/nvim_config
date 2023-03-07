@@ -198,16 +198,6 @@ local gs = require("gitsigns")
    },
  }
 
- local harpoon = {
-   name = "Harpoon",
-   m = {require('harpoon.mark').add_file, "mark file"},
-   o = {require("harpoon.ui").toggle_quick_menu, "open marks"},
-   n = {require("harpoon.ui").nav_next, "next mark"},
-   p = {require("harpoon.ui").nav_prev, "prev mark"},
-   t = { function() require("harpoon.tmux").gotoTerminal(1) end, "go to first tmux terminal"}
- }
-
-
  local packer = {
    name = "Packer",
    s = {"<cmd>:PackerSync<cr>", "sync plugins"},
@@ -233,7 +223,6 @@ key.register(git, { prefix = "<leader>g" })
 key.register(github, { prefix = "<leader>h" })
 key.register(lsp, { prefix = "<leader>l" })
 key.register(test, { prefix = "<leader>t" })
-key.register(harpoon, { prefix = "<leader>m" })
 key.register(packer, { prefix = "<leader>p" })
 key.register(markown, { prefix = "<leader>M" })
 key.register(zenmode, { prefix = "<leader>z" })

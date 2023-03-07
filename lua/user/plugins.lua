@@ -111,9 +111,6 @@ return packer.startup(function(use)
   -- Prettier
   use({ 'MunifTanjim/prettier.nvim' })
 
-  -- Tmux navigation
-  use({ "aserowy/tmux.nvim" })
-
   -- Neotest
   use {
   "nvim-neotest/neotest",
@@ -144,17 +141,14 @@ return packer.startup(function(use)
   -- nvim-surround
   use({ "kylechui/nvim-surround"})
 
-  -- gh.nvim (support for github integration)
-  use { 'ldelossa/gh.nvim', requires = { { 'ldelossa/litee.nvim' } } }
-
-  -- Harpoon
-  use {  'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
-
   -- Glow (show markdown preview inside neovim)
   use {"ellisonleao/glow.nvim", ft={"markdown", "md"}}
 
   -- Auto-save the file when change to Normal mode
   use {"Pocco81/auto-save.nvim" }
+
+  -- Productivity
+  use { "nvim-neorg/neorg", run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
 
   if PACKER_BOOTSTRAP  then
     require("packer").PackerSync()
