@@ -7,12 +7,21 @@ neorg.setup {
     ["core.norg.dirman"] = { -- Manages Neorg workspaces
       config = {
           workspaces = {
-              notes = "~/neorg/degree/notes",
-              ideas = "~/neorg/degree/ideas",
-              projects = "~/neorg/project/ideas",
+              degree_notes = "~/neorg/degree/notes",
+              degree_tasks = "~/neorg/degree/tasks",
+              personal_ideas = "~/neorg/personal/ideas",
+              personal_notes = "~/neorg/personal/notes",
+              personal_tasks = "~/neorg/personal/tasks",
+              quick_notes = "~/neorg/quick_notes"
           },
-          default_workspace = "~/neorg/quick_notes"
+          default_workspace = "quick_notes"
       },
     },
+    ["core.norg.completion"] = {
+      config = {
+        engine = "nvim-cmp",
+        name = "[Neorg]"
+      }
+    }
   },
 }

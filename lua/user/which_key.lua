@@ -139,6 +139,22 @@ local gs = require("gitsigns")
    ["]e"] = { ':Lspsaga diagnostic_jump_next<cr>', "goto next error"},
  }
 
+local neorg = {
+  name = "Neorg",
+  d = { ':Neorg workspace default<cr>', "take notes inside default dir" },
+  n = { ':Neorg workspace degree_notes<cr>', "take notes inside degree_notes" },
+  t = { ':Neorg workspace degree_tasks<cr>', "take tasks inside degree_tasks" },
+  pi = { ':Neorg workspace personal_ideas<cr>', "take notes inside personal_ideas" },
+  pn = { ':Neorg workspace personal_notes<cr>', "take notes inside personal_notes" },
+  pt = { ':Neorg workspace personal_tasks<cr>', "take notes inside personal_tasks" },
+  r = { ':Neorg return<cr>', "go to previous note" },
+}
+
+local noice = {
+  name = "Noice",
+  t = { ":NoiceTelescope<cr>", "show noice output in telescope" }
+}
+
  local test = {
    name = "Testing",
    n = { function() require("neotest").jump.next({status = 'failed'}) end, "jump next failed test"},
@@ -222,6 +238,8 @@ key.register(files, { prefix = "<leader>f" })
 key.register(git, { prefix = "<leader>g" })
 key.register(github, { prefix = "<leader>h" })
 key.register(lsp, { prefix = "<leader>l" })
+key.register(neorg, { prefix = "<leader>n" })
+key.register(noice, { prefix = "." })
 key.register(test, { prefix = "<leader>t" })
 key.register(packer, { prefix = "<leader>p" })
 key.register(markown, { prefix = "<leader>M" })
