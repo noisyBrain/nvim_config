@@ -149,6 +149,7 @@ return packer.startup(function(use)
 
   -- Productivity
   use { "nvim-neorg/neorg", run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
+  use {"akinsho/toggleterm.nvim", tag = '*' }
 
   if PACKER_BOOTSTRAP  then
     require("packer").PackerSync()

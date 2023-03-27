@@ -56,6 +56,8 @@ local unused_colors = {
 local colors = {
   bg = '#1e1e2e',
   black = '#11111b',
+  peach = '#fab387',
+  lavender = '#b4befe',
   orange_yellow = '#E5C07B',
   turquesa = '#56B6C2',
   oceanblue = '#89b4fa',
@@ -74,7 +76,8 @@ local colors = {
 }
 
 local vi_mode_colors = {
-  NORMAL = 'anaranjado',
+  -- NORMAL = 'anaranjado',
+  NORMAL = 'magenta',
   OP = 'anaranjado',
   INSERT = 'red',
   VISUAL = 'moradito',
@@ -182,7 +185,7 @@ components.active[1][3] = {
     local val = {}
 
     val.fg = 'black'
-    val.bg = '#ffff99'
+    val.bg = '#b4befe'
     val.style = 'bold'
 
     return val
@@ -191,7 +194,7 @@ components.active[1][3] = {
   left_sep = {
     str = ' ' .. separators.slant_left,
     hl = {
-      fg = '#ffff99',
+      fg = '#b4befe',
       bg = 'bg'
     }
   },
@@ -201,7 +204,7 @@ components.active[1][3] = {
     hl = function()
       local val = {}
 
-      val.fg ='#ffff99'
+      val.fg ='#b4befe'
 
       return val
     end

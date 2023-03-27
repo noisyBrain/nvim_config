@@ -79,20 +79,14 @@ local opts = {
   nowait = false,
 }
 
-local find_nvim_config = function()
-end
-
 local files = {
   name = "Files",
-  h = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "help tags" },
+  b = { ":Telescope buffers<cr>", "find open buffers" },
+  e = { ":NvimTreeToggle<cr>", "show tree" },
   f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "find files" },
-  g = { "<cmd>Telescope live_grep<cr>", "search any world" },
-  e = {"<cmd>:NvimTreeToggle<cr>", "show tree"},
+  g = { ":Telescope live_grep<cr>", "search any world" },
+  h = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "help tags" },
   n = { "<cmd>lua require('telescope.builtin').find_files({ prompt_title = ' Find config ', cwd = '~/.config/nvim/'})<cr>", "find nvim config" },
-  -- x = {},
-  -- h = {},
-  -- v = {},
-  -- s = {},
 }
 
 local gs = require("gitsigns")
@@ -229,6 +223,15 @@ local noice = {
    P = {"<cmd>:MarkdownPreview<cr>", "preview in the browser"}
  }
 
+ local toggleterm = {
+  name = "Term",
+  f = { ":ToggleTerm direction=float<cr>", "open float terminal" },
+  h = { ":ToggleTerm direction=horizontal size=20<cr>", "open horizontal terminal" },
+  v = { ":ToggleTerm direction=vertical size=100<cr>", "open vertical terminal" },
+  nh = { ":ToggleTerm dir=~/.config/nvim direction=horizontal size=20<cr>", "open horizontal terminal in neovim dir" },
+  nv = { ":ToggleTerm dir=~/.config/nvim direction=vertical size=100<cr>", "open vertical terminal in neovim dir" },
+}
+
  local zenmode = {
    name = "ZenMode",
    m = {"<cmd>:ZenMode<cr>", "Toggle ZenMode"},
@@ -238,9 +241,10 @@ key.register(files, { prefix = "<leader>f" })
 key.register(git, { prefix = "<leader>g" })
 key.register(github, { prefix = "<leader>h" })
 key.register(lsp, { prefix = "<leader>l" })
-key.register(neorg, { prefix = "<leader>n" })
-key.register(noice, { prefix = "." })
+key.register(neorg, { prefix = "<leader>d" })
+key.register(noice, { prefix = "," })
 key.register(test, { prefix = "<leader>t" })
 key.register(packer, { prefix = "<leader>p" })
 key.register(markown, { prefix = "<leader>M" })
 key.register(zenmode, { prefix = "<leader>z" })
+key.register(toggleterm, { prefix = "<leader>q" })

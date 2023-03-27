@@ -12,9 +12,9 @@ neorg.setup {
               personal_ideas = "~/neorg/personal/ideas",
               personal_notes = "~/neorg/personal/notes",
               personal_tasks = "~/neorg/personal/tasks",
-              quick_notes = "~/neorg/quick_notes"
+              notes = "~/neorg/notes"
           },
-          default_workspace = "quick_notes"
+          default_workspace = "notes"
       },
     },
     ["core.norg.completion"] = {

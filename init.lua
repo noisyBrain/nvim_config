@@ -9,6 +9,7 @@ local config_files = {
   "mason_config",
   "telescope",
   "treesitter",
+  "toggleterm",
   "neorg",
   "noice",
   "autopairs",
