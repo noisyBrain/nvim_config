@@ -3,8 +3,8 @@ local neorg = SafeRequire('neorg')
 neorg.setup {
   load = {
     ["core.defaults"] = {}, -- Loads default behaviour
-    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-    ["core.norg.dirman"] = { -- Manages Neorg workspaces
+    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+    ["core.dirman"] = { -- Manages Neorg workspaces
       config = {
           workspaces = {
               degree_notes = "~/neorg/degree/notes",
@@ -17,10 +17,16 @@ neorg.setup {
           default_workspace = "notes"
       },
     },
-    ["core.norg.completion"] = {
+    ["core.completion"] = {
       config = {
         engine = "nvim-cmp",
         name = "[Neorg]"
+      }
+    },
+    ["core.export"] = {},
+    ["core.export.markdown"] = {
+      config = {
+        extensions = { "all" }
       }
     }
   },

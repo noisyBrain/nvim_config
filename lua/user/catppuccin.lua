@@ -17,10 +17,10 @@ catppuccin.setup ({
     no_italic = false, -- Force no italic
     no_bold = false, -- Force no bold
     styles = {
-        comments = {},
+        comments = { 'italic' },
         conditionals = {},
         loops = {},
-        functions = {},
+        functions = { 'italic' },
         keywords = {},
         strings = {},
         variables = {},

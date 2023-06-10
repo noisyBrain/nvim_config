@@ -4,7 +4,7 @@ local config_files = {
   "utils",
   "keymaps",
   "plugins",
-  "catppuccin",
+  "base46",
   "cmp",
   "mason_config",
   "telescope",

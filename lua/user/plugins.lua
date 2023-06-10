@@ -50,6 +50,7 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'navarasu/onedark.nvim'
   use 'catppuccin/nvim'
+  use 'noisyBrain/base46'
 
   -- Lua
   use { "folke/zen-mode.nvim" }
@@ -73,7 +74,7 @@ return packer.startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp" }) -- , commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8"
   use({ "hrsh7th/cmp-nvim-lua" }) -- , commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21"
   use({ "hrsh7th/cmp-cmdline" })
-  use({ "glepnir/lspsaga.nvim" })
+  use({ "glepnir/lspsaga.nvim" }) -- commit = "c39cafb10867357ef7004c60b914db448977a531"
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
@@ -140,9 +141,6 @@ return packer.startup(function(use)
 
   -- nvim-surround
   use({ "kylechui/nvim-surround"})
-
-  -- Glow (show markdown preview inside neovim)
-  use {"ellisonleao/glow.nvim", ft={"markdown", "md"}}
 
   -- Auto-save the file when change to Normal mode
   use {"Pocco81/auto-save.nvim" }
