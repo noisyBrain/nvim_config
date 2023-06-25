@@ -1,7 +1,6 @@
 local mason = SafeRequire("mason")
 local mason_config = SafeRequire("mason-lspconfig")
 
-
 local servers = {
   "marksman",
   "emmet_ls",
@@ -41,12 +40,5 @@ require("lspconfig").lua_ls.setup {
 	},
 }
 
-local group = vim.api.nvim_create_augroup("MasonLspGroup", { clear = true })
-
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  group = group,
-  pattern = {"*.js", "*.ts"},
-  callback = function ()
-    require("lspconfig").tsserver.setup {}
-  end
-})
+require("lspconfig").tsserver.setup {}
+require("lspconfig").pylsp.setup {}
