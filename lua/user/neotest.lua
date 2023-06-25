@@ -1,7 +1,10 @@
 local neotest = SafeRequire("neotest")
 
-neotest.setup  {
+neotest.setup({
    adapters = {
-     require("neotest-jest"),
+    require("neotest-jest")({
+      ft = { "jasvascript", "typescripot" }
+    }),
+    require("neotest-python")({})
   }
-}
+})

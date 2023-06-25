@@ -18,13 +18,14 @@ local config_files = {
   "gitsigns",
   "nvim_tree",
   "lsp",
+  "neotest",
   "feline_bar",
   "blankline",
   "which_key",
   "surround",
   "colorizer",
   "prettier",
-  "autoopen_ntree"
+  "autoopen_ntree",
 }
 
 for _, file  in ipairs(config_files ) do

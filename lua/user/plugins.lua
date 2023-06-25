@@ -111,15 +111,15 @@ return packer.startup(function(use)
 
   -- Neotest
   use {
-  "nvim-neotest/neotest",
-  requires = {
+    "nvim-neotest/neotest",
+    requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      {"haydenmeade/neotest-jest", ft={"javascript","typescript"}},
-      { "nvim-neotest/neotest-python", ft="python" },
-      {"nvim-neotest/neotest-vim-test", requires = "vim-test/vim-test"}, -- Suport many test runners
-    }}
+      "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-python",
+    }
+  }
 
   -- Neogit
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' }
