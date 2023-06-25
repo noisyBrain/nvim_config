@@ -92,10 +92,7 @@ return packer.startup(function(use)
   use({ "nvim-lua/popup.nvim" })
 
   -- Treesitter
-  use({
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  })
+  use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
   -- UI
   use({ "stevearc/dressing.nvim" })
@@ -137,7 +134,7 @@ return packer.startup(function(use)
   use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
 
   -- which key
-  use { "folke/which-key.nvim", commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71" }
+  use { "folke/which-key.nvim" } -- bd4411a2ed4dd8bb69c125e339d837028a6eea71
 
   -- nvim-surround
   use({ "kylechui/nvim-surround"})
