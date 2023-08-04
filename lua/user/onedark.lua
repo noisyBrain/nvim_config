@@ -17,7 +17,7 @@ onedark.setup {
     code_style = {
         comments = 'none',
         keywords = 'none',
-        functions = 'none',
+        functions = 'bold',
         strings = 'none',
         variables = 'none'
     },

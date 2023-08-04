@@ -42,3 +42,4 @@ require("lspconfig").lua_ls.setup {
 
 require("lspconfig").tsserver.setup {}
 require("lspconfig").pylsp.setup {}
+require("lspconfig").prismals.setup {}

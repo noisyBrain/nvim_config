@@ -57,6 +57,7 @@ plugins = {
 local files = {
   name = "Files",
   b = { ":Telescope buffers<cr>", "find open buffers" },
+  c = { ":NvimTreeCollapse<cr>", "collapse tree" },
   e = { ":NvimTreeToggle<cr>", "show tree" },
   f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "find files" },
   g = { ":Telescope live_grep<cr>", "search any world" },
@@ -106,7 +107,7 @@ local gs = require("gitsigns")
 
   o = {
    l = { ":Lspsaga outline<cr>", "view outline" },
-   c = { ":Lspsaga outgoing_calls", "outgoing calls" },
+   c = { ":Lspsaga outgoing_calls<cr>", "outgoing calls" },
    "out view" },
 
   p = { ":Lspsaga peek_definition<cr>", "preview definition"},
@@ -215,6 +216,13 @@ local noice = {
      S = {"<cmd>:PackerStatus<cr>", "plugins status"},
  }
 
+local mind = {
+  name = "Mind",
+    p = { ":MindOpenProject<cr>", "Open project" },
+    m = { ":MindOpenMain<cr>", "Open main" },
+    c = { ":MindClose<cr>", "Close mind" },
+}
+
  local markown = {
    name = "Markdow",
      p = {"<cmd>:Glow<cr>", "Preview in neovim"},
@@ -243,6 +251,7 @@ key.register(neorg, { prefix = "<leader>d" })
 key.register(noice, { prefix = "<leader>i" })
 key.register(test, { prefix = "<leader>t" })
 key.register(packer, { prefix = "<leader>p" })
+key.register(mind, { prefix = "<leader>m" })
 key.register(markown, { prefix = "<leader>M" })
 key.register(zenmode, { prefix = "<leader>z" })
 key.register(toggleterm, { prefix = "<leader>q" })

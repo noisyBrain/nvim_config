@@ -52,19 +52,16 @@ return packer.startup(function(use)
   use 'catppuccin/nvim'
   use 'noisyBrain/base46'
 
-  -- Lua
-  use { "folke/zen-mode.nvim" }
-
   -- autopairs
   use { "windwp/nvim-autopairs" }
 
   -- Markdown previewer
-  use(
-    { "iamcco/markdown-preview.nvim",
-      run = "cd app && npm install",
-      setup = function() vim.g.mkdp_filetypes = { "markdown", "md" } end,
-      ft = { "markdown" },
-    })
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown", "md" } end,
+    ft = { "markdown" },
+    }
 
   -- cmp plugins
   use({ "hrsh7th/nvim-cmp" }) -- The completion plugin , commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a"
@@ -85,29 +82,27 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
   -- Telescope
-  use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
-  use({ "nvim-telescope/telescope-ui-select.nvim" })
-  use({ "nvim-telescope/telescope-media-files.nvim" })
-  use({ "xiyaowong/telescope-emoji.nvim" })
-  use({ "nvim-lua/popup.nvim" })
+  use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+  use { "nvim-telescope/telescope-ui-select.nvim" }
+  use { "nvim-telescope/telescope-media-files.nvim" }
+  use { "xiyaowong/telescope-emoji.nvim" }
+  use { "nvim-lua/popup.nvim" }
 
   -- Treesitter
-  use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- UI
-  use({ "stevearc/dressing.nvim" })
-  use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim" } })
-  use({ "lukas-reineke/indent-blankline.nvim"})
-
-  -- Colorizer
-  use({ "norcalli/nvim-colorizer.lua" })
+  use { "stevearc/dressing.nvim" }
+  use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim" } }
+  use { "lukas-reineke/indent-blankline.nvim" }
+  use { "norcalli/nvim-colorizer.lua" }
 
     -- nvim-comments
-  use({ "numToStr/Comment.nvim" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" })
+  use { "numToStr/Comment.nvim" }
+	use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
 
   -- Prettier
-  use({ 'MunifTanjim/prettier.nvim' })
+  use { "MunifTanjim/prettier.nvim" }
 
   -- Neotest
   use {
@@ -122,16 +117,16 @@ return packer.startup(function(use)
   }
 
   -- Neogit
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' }
+  use { "NeogitOrg/neogit", requires = "nvim-lua/plenary.nvim" }
 
   -- Nvim Tree
-  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons'}}
+  use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
 
   -- Bufferline 
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use { "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" }
 
   -- feline bar
-  use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
+  use { "feline-nvim/feline.nvim", branch = "0.5-compat" }
 
   -- which key
   use { "folke/which-key.nvim" } -- bd4411a2ed4dd8bb69c125e339d837028a6eea71
@@ -139,12 +134,12 @@ return packer.startup(function(use)
   -- nvim-surround
   use({ "kylechui/nvim-surround"})
 
-  -- Auto-save the file when change to Normal mode
-  use {"Pocco81/auto-save.nvim" }
-
   -- Productivity
-  use { "nvim-neorg/neorg", run = ':Neorg sync-parsers', requires = 'nvim-lua/plenary.nvim' }
-  use {"akinsho/toggleterm.nvim", tag = '*' }
+  use { "nvim-neorg/neorg", run = ":Neorg sync-parsers", requires = "nvim-lua/plenary.nvim" }
+  use { "akinsho/toggleterm.nvim", tag = '*' }
+  use { "Pocco81/auto-save.nvim" }
+  use { "phaazon/mind.nvim", branch = 'v2.2', requires = { "nvim-lua/plenary.nvim" } }
+  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
 
   if PACKER_BOOTSTRAP  then
     require("packer").PackerSync()
