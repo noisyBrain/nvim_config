@@ -238,6 +238,12 @@ local mind = {
     nv = { ":ToggleTerm dir=~/.config/nvim direction=vertical size=100<cr>", "open vertical terminal in neovim dir" },
 }
 
+local dap = {
+  name = "Dap",
+  b = { ":DapToggleBreakpoint<cr>", "toggle breakpoint" },
+  r = { ":DapContinue<cr>", "Start or continue the debugger" }
+}
+
  local zenmode = {
    name = "ZenMode",
    m = {"<cmd>:ZenMode<cr>", "Toggle ZenMode"},
@@ -247,7 +253,6 @@ key.register(files, { prefix = "<leader>f" })
 key.register(git, { prefix = "<leader>g" })
 key.register(github, { prefix = "<leader>h" })
 key.register(lsp, { prefix = "<leader>l" })
-key.register(neorg, { prefix = "<leader>d" })
 key.register(noice, { prefix = "<leader>i" })
 key.register(test, { prefix = "<leader>t" })
 key.register(packer, { prefix = "<leader>p" })
@@ -255,3 +260,6 @@ key.register(mind, { prefix = "<leader>m" })
 key.register(markown, { prefix = "<leader>M" })
 key.register(zenmode, { prefix = "<leader>z" })
 key.register(toggleterm, { prefix = "<leader>q" })
+key.register(dap, { prefix = "<leader>d" })
+
+-- key.register(neorg, { prefix = "<leader>d" })

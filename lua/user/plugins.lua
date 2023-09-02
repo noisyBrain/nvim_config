@@ -116,6 +116,16 @@ return packer.startup(function(use)
     }
   }
 
+  -- Debug
+  use { "mfussenegger/nvim-dap",
+    requires = {
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "mxsdev/nvim-dap-vscode-js",
+      "rcarriga/cmp-dap",
+    },
+  }
+
   -- Neogit
   use { "NeogitOrg/neogit", requires = "nvim-lua/plenary.nvim" }
 
@@ -140,6 +150,7 @@ return packer.startup(function(use)
   use { "Pocco81/auto-save.nvim" }
   use { "phaazon/mind.nvim", branch = 'v2.2', requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+  use { "renerocksai/telekasten.nvim", requires = { "nvim-telescope/telescope.nvim" } }
 
   if PACKER_BOOTSTRAP  then
     require("packer").PackerSync()
