@@ -8,6 +8,7 @@ local servers = {
   "yamlls",
   "lua_ls",
   "tsserver",
+  "clangd"
 }
 
 mason.setup {
@@ -43,3 +44,4 @@ require("lspconfig").lua_ls.setup {
 require("lspconfig").tsserver.setup {}
 require("lspconfig").pylsp.setup {}
 require("lspconfig").prismals.setup {}
+require('lspconfig').clangd.setup {}
