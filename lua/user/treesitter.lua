@@ -1,7 +1,7 @@
 local configs = SafeRequire("nvim-treesitter.configs")
 
 configs.setup({
-	ensure_installed = {'typescript', 'javascript', 'html', 'css'}, -- one of "all" or a list of languages
+	ensure_installed = { 'typescript', 'javascript', 'html', 'css' }, -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -19,5 +19,3 @@ configs.setup({
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
   }
 })
-
-

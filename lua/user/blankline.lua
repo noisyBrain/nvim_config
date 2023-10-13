@@ -1,4 +1,4 @@
-local blankline = SafeRequire("indent_blankline")
+local blankline = SafeRequire("ibl")
 
 
 -- setup different colours for blankline example:
@@ -17,5 +17,7 @@ local blankline = SafeRequire("indent_blankline")
 -- }
 
 blankline.setup {
-  show_trailing_blankline_indent = false
+  whitespace = {
+    remove_blankline_trail = true
+  }
 }

@@ -44,8 +44,19 @@ local mappings = {
   {"n", "<S-TAB>", ":bprevious<CR>"},
 
   -- Move text up and down
-  {"n", "<A-j>", "<Esc>:move .+1<CR>==gi"},
-  {"n", "<A-k>", "<Esc>:move .-2<CR>==gi"},
+-- Normal-mode commands
+  {'n', '<A-j>', ':MoveLine(1)<CR>'},
+  {'n', '<A-k>', ':MoveLine(-1)<CR>'},
+  {'n', '<A-h>', ':MoveHChar(-1)<CR>'},
+  {'n', '<A-l>', ':MoveHChar(1)<CR>'},
+  {'n', '<leader>wf', ':MoveWord(1)<CR>'},
+  {'n', '<leader>wb', ':MoveWord(-1)<CR>'},
+
+  -- Visual-mode commands
+  {'v', '<A-j>', ':MoveBlock(1)<CR>', opts},
+  {'v', '<A-k>', ':MoveBlock(-1)<CR>', opts},
+  {'v', '<A-h>', ':MoveHBlock(-1)<CR>', opts},
+  {'v', '<A-l>', ':MoveHBlock(1)<CR>', opts},
 
   -- Insert --
   -- Press jk fast to exit insert mode 
@@ -79,4 +90,3 @@ end
 
 
 setKeymap(mappings)
-

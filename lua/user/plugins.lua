@@ -151,6 +151,8 @@ return packer.startup(function(use)
   use { "phaazon/mind.nvim", branch = 'v2.2', requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use { "renerocksai/telekasten.nvim", requires = { "nvim-telescope/telescope.nvim" } }
+  use { "folke/flash.nvim" }
+  use { "fedepujol/move.nvim" }
 
   if PACKER_BOOTSTRAP  then
     require("packer").PackerSync()

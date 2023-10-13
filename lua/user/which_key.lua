@@ -100,7 +100,7 @@ local gs = require("gitsigns")
  local lsp = {
   name = "Lsp",
   a = { ":Lspsaga code_action<cr>", "code action" },
-  f = { ":Lspsaga lsp_finder<cr>", "find definitions and references" },
+  f = { ":Lspsaga finder<cr>", "find definitions and references" },
   g = { ":Lspsaga goto_definition<cr>", "go to definition" },
   h = { ":Lspsaga hover_doc<cr>", "hover doc" },
   i = { ":Lspsaga incoming_calls<cr>", "incoming calls" },
@@ -121,22 +121,6 @@ local gs = require("gitsigns")
   ["[e"] = { ":Lspsaga diagnostic_jump_prev<cr>", "goto previous error"},
   ["]e"] = { ":Lspsaga diagnostic_jump_next<cr>", "goto next error"},
  }
-
-local neorg = {
-  name = "Neorg",
-  d = { ':Neorg workspace default<cr>', "take notes inside default dir" },
-  n = { ':Neorg workspace degree_notes<cr>', "take notes inside degree_notes" },
-  t = { ':Neorg workspace degree_tasks<cr>', "take tasks inside degree_tasks" },
-
-  p = {
-    i = { ':Neorg workspace personal_ideas<cr>', "take notes inside personal_ideas" },
-    t = { ':Neorg workspace personal_tasks<cr>', "take notes inside personal_tasks" },
-    n = { ':Neorg workspace personal_notes<cr>', "take notes inside personal_notes" },
-   "personal workspace"
-  },
-
-  r = { ':Neorg return<cr>', "go to previous note" },
-}
 
 local noice = {
   name = "Noice",
@@ -249,17 +233,15 @@ local dap = {
    m = {"<cmd>:ZenMode<cr>", "Toggle ZenMode"},
  }
 
+key.register(dap, { prefix = "<leader>d" })
 key.register(files, { prefix = "<leader>f" })
 key.register(git, { prefix = "<leader>g" })
 key.register(github, { prefix = "<leader>h" })
-key.register(lsp, { prefix = "<leader>l" })
 key.register(noice, { prefix = "<leader>i" })
-key.register(test, { prefix = "<leader>t" })
-key.register(packer, { prefix = "<leader>p" })
+key.register(lsp, { prefix = "<leader>l" })
 key.register(mind, { prefix = "<leader>m" })
 key.register(markown, { prefix = "<leader>M" })
-key.register(zenmode, { prefix = "<leader>z" })
+key.register(packer, { prefix = "<leader>p" })
 key.register(toggleterm, { prefix = "<leader>q" })
-key.register(dap, { prefix = "<leader>d" })
-
--- key.register(neorg, { prefix = "<leader>d" })
+key.register(test, { prefix = "<leader>t" })
+key.register(zenmode, { prefix = "<leader>z" })

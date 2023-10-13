@@ -24,6 +24,7 @@ local config_files = {
   "feline_bar",
   "blankline",
   "mind",
+  "flash",
   "todo_comment",
   "which_key",
   "surround",
