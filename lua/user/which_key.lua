@@ -56,6 +56,7 @@ plugins = {
 
 local files = {
   name = "Files",
+  a = { ":Telescope emoji<cr>", "find emojis" },
   b = { ":Telescope buffers<cr>", "find open buffers" },
   c = { ":NvimTreeCollapse<cr>", "collapse tree" },
   e = { ":NvimTreeToggle<cr>", "show tree" },
