@@ -90,6 +90,7 @@ return packer.startup(function(use)
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use { "HiPhish/rainbow-delimiters.nvim" }
 
   -- UI
   use { "stevearc/dressing.nvim" }
