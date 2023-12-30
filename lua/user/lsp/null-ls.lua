@@ -21,5 +21,6 @@ null_ls.setup({
     formatting.fixjson,
     formatting.sql_formatter,
     diagnostics.yamllint,
-	},
+    diagnostics.pylint
+  },
 })
