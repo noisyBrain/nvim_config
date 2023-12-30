@@ -151,7 +151,7 @@ return packer.startup(function(use)
   use { "Pocco81/auto-save.nvim" }
   use { "phaazon/mind.nvim", branch = 'v2.2', requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
-  use { "renerocksai/telekasten.nvim", requires = { "nvim-telescope/telescope.nvim" } }
+  use { "epwalsh/obsidian.nvim", tag = "*", requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/flash.nvim" }
   use { "fedepujol/move.nvim" }
 
