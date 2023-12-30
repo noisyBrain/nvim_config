@@ -5,4 +5,3 @@ end
 
 require "user.lsp.null-ls"
 require "user.lsp.saga"
-

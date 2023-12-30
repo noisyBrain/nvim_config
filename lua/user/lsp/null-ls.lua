@@ -11,8 +11,8 @@ null_ls.setup({
     }),
     diagnostics.eslint_d.with({
       condition = function(utils)
-        -- return utils.root_has_file(".eslintrc%.[json|js]$")
-        return utils.root_has_file(".eslintrc.json")
+        -- return utils.root_has_file(".eslintrc.json")
+        return utils.root_has_file(".eslintrc.js")
       end
     }),
     formatting.black.with({ extra_args = { "--fast" } }),
