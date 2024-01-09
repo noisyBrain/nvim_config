@@ -19,7 +19,6 @@ ntree.setup {
       adaptive_size = false,
       centralize_selection = false,
       width = 40,
-      hide_root_folder = true,
       side = "left",
       preserve_window_proportions = false,
       number = false,
@@ -37,6 +36,7 @@ ntree.setup {
       full_name = false,
       highlight_opened_files = "none",
       root_folder_modifier = ":~",
+      root_folder_label = false,
       indent_markers = {
         enable = true,
         inline_arrows = true,
