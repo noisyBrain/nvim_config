@@ -44,4 +44,4 @@ require("lspconfig").lua_ls.setup {
 require("lspconfig").tsserver.setup {}
 require("lspconfig").pyright.setup {}
 require("lspconfig").prismals.setup {}
-require('lspconfig').clangd.setup {}
+require('lspconfig').astro.setup {}
