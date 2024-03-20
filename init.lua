@@ -9,7 +9,6 @@ local config_files = {
   "mason_config",
   "telescope",
   "treesitter",
-  "obsidian",
   "dap",
   "nvim_dap_ui",
   "toggleterm",

@@ -47,10 +47,7 @@ return packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
  -- themes
-  use 'folke/tokyonight.nvim'
   use 'navarasu/onedark.nvim'
-  use 'catppuccin/nvim'
-  use 'noisyBrain/base46'
 
   -- autopairs
   use { "windwp/nvim-autopairs" }
@@ -151,7 +148,6 @@ return packer.startup(function(use)
   use { "Pocco81/auto-save.nvim" }
   use { "phaazon/mind.nvim", branch = 'v2.2', requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
-  use { "epwalsh/obsidian.nvim", tag = "*", requires = { "nvim-lua/plenary.nvim" } }
   use { "folke/flash.nvim" }
   use { "fedepujol/move.nvim" }
 
