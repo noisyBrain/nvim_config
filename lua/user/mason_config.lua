@@ -1,14 +1,19 @@
 local mason = SafeRequire("mason")
 local mason_config = SafeRequire("mason-lspconfig")
 
+local lspconfig = SafeRequire("lspconfig")
+local on_attach = SafeRequire("lspconfig").on_attach
+local capabilities = SafeRequire("lspconfig").capabilities
+local util = SafeRequire("lspconfig/util")
+
 local servers = {
   "marksman",
   "emmet_ls",
   "jsonls",
-  "yamlls",
   "lua_ls",
   "tsserver",
-  "clangd"
+  "bashls",
+  "gopls"
 }
 
 mason.setup {
@@ -25,7 +30,7 @@ mason_config.setup {
   ensure_installed = servers,
 }
 
-require("lspconfig").lua_ls.setup {
+lspconfig.lua_ls.setup {
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -41,7 +46,20 @@ require("lspconfig").lua_ls.setup {
 	},
 }
 
-require("lspconfig").tsserver.setup {}
-require("lspconfig").pyright.setup {}
-require("lspconfig").prismals.setup {}
-require('lspconfig').astro.setup {}
+lspconfig.gopls.setup {
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    completeUnImported = true,
+    usePlaceholders = true,
+    analyses = {
+      unusedparams = true
+    }
+  }
+}
+lspconfig.tsserver.setup {}
+lspconfig.pyright.setup {}
+lspconfig.prismals.setup {}
+lspconfig.astro.setup {}
